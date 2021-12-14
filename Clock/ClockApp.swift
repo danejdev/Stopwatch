@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct ClockApp: App {
+    var timeHandler = TimeHandler()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ClockView(timeHandler: timeHandler)
         }
     }
 }

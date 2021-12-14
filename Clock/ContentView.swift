@@ -6,11 +6,45 @@
 //
 
 import SwiftUI
+import Foundation
+
+struct Time: View {
+    @ObservedObject
+
+    
+    var body: some View {
+        Text("\(trailingZero(hour)) : \(trailingZero(minutes)) : \(trailingZero(seconds))")
+            .font(.title)
+    }
+}
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            ZStack {
+                Time()
+                Circle()
+                    .strokeBorder()
+            }
+            HStack {
+                Button(action: {}) {
+                    ZStack {
+                        Circle()
+                            .fill(Color.red)
+                        Text("Stop")
+                            .foregroundColor(.white)
+                    }
+                }
+                Button(action: {}) {
+                    ZStack {
+                        Circle()
+                            .fill(Color.green)
+                        Text("Start")
+                            .foregroundColor(.white)
+                    }
+                }
+            }
+        }.padding()
     }
 }
 
